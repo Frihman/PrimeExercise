@@ -10,13 +10,18 @@ namespace PrimeExercises
     {
         static void Main(string[] args)
         {
-            double x = 542;
-            Console.WriteLine(Prime(x));
+            int n = Convert.ToInt32(Console.ReadLine());
+            Prime(n);
         }
 
-        private static bool Prime(double x)
+        private static bool isPrime(double x)
         {
-            if (((x / 2) % 1 == 0) && x != 2 )
+            if (x == 1)
+            {
+                return false;
+            }
+
+            if (((x / 2) % 1 == 0) && x != 2)
             {
                 return false;
             }
@@ -33,6 +38,23 @@ namespace PrimeExercises
             }
             
             return true;
+        }
+
+        static void Prime(int n)
+        {
+            int i = 1;
+            int index = 0;
+
+            do
+            {
+                if (isPrime(i))
+                {
+                    Console.WriteLine(i);
+                    index += 1;
+                }
+
+                i += 1;
+            } while (index < n);
         }
     }
 }
